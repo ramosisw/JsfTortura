@@ -1,0 +1,16 @@
+.bg-success {
+background-color: #CCDDEF;
+}
+.bg-primary {
+color: #fff;
+background-color: #030405;
+}
+.btn-primary {
+color: #fff;
+background-color: #238CCD;
+}
+.btn-primary:hover, .btn-primary.hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+color: #fff;
+background-color: #48c9b0;
+border-color: #48c9b0;
+}

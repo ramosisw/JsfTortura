@@ -1,0 +1,42 @@
+.bg-success {
+background-color: #EEEEEE;
+}
+.bg-primary {
+color: #fff;
+background-color: #D2A06D;
+}
+.btn-primary {
+color: #fff;
+background-color: #DA4A14;
+}
+.btn-primary:hover, .btn-primary.hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+color: #fff;
+background-color: #FF9326;
+border-color: #48c9b0;
+}
+.fui-tag{
+    color: #8B0000;
+}
+.fui-location{
+    color: #0040FF;
+}
+
+
+.fui-user {
+	color: #D2A06D;
+}
+.fui-user:hover{
+	background-color: #8B0000;
+}
+.fui-bookmark{
+	color: #D2A06D;
+}
+.fui-bookmark:hover{
+	background-color: #8B0000;
+}
+.fui-home{
+	color: #D2A06D;
+}
+.fui-home:hover{
+	background-color: #8B0000;
+}

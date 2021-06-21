@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>My events</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="Content/css/vendor/bootstrap.min.css"/>
+        <!-- Loading Flat UI -->
+        <link rel="stylesheet" href="Content/css/flat-ui.css"/>
+        <link rel="stylesheet" href="Content/css/style.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-md-4 col-lg-3 bg-primary column-left" >
+                    <!-- CONTENIDO SIDEBAR -->
+                    <div id="sidebar">
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label text-center">Thema : <span id="ThemeSelected"></span></label>
+                            </div>
+                            <div class="col-sm-12">
+                                <select id="switchTheme" class="form-control select select-info select-sm" data-toggle="select">
+                                    <option value="Principal">Principal</option>
+                                    <option value="Secundario">Secundario</option>
+                                    <option value="Alternativo">Alternativo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-2">
+                                <a href="javascript:;" class="thumbnail">
+                                    <img src="/Images/myevents.png" class="img-responsive center-block" alt="..."/>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/Home/Login" class="btn btn-primary btn-block">Iniciar Sesión</a>
+                        </div>
+                    </div>
+                    <!-- FIN CONTENIDO SIDEBAR -->
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 bg-success column-right">
+                    <!-- CONTENIDO GENERAL DEL MASTER PAGE -->
+                    <ui:insert name="contenido"></ui:insert>
+                    <!-- FIN CONTENIDO GENERAL DEL MASTER PAGE -->
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

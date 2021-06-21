@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/Servicios/Evento" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://localhost/Servicios/Evento" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/Servicios/Evento">
+      <s:element name="GetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByIdResult" type="tns:Evento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Evento">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Persistent">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoEvento" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Lugar" type="tns:Lugar" />
+              <s:element minOccurs="0" maxOccurs="1" name="Imagen" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="EdadMinima" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreadoPor" type="tns:Usuario" />
+              <s:element minOccurs="0" maxOccurs="1" name="Patrocinadores" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Persistent" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Persistent">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoUsuario" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CorreoElectronico" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contrasena" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="TipoUsuario">
+        <s:restriction base="s:string">
+          <s:enumeration value="ADMINISTRADOR" />
+          <s:enumeration value="CLIENTE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Lugar">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Persistent">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ciudad" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="TipoEvento">
+        <s:restriction base="s:string">
+          <s:enumeration value="POP" />
+          <s:enumeration value="ROCK" />
+          <s:enumeration value="BANDA" />
+          <s:enumeration value="LATINO" />
+          <s:enumeration value="VIVO" />
+          <s:enumeration value="INFANTIL" />
+          <s:enumeration value="OTRO" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetSecciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeccionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSeccionesResult" type="tns:ArrayOfSeccion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSeccion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Seccion" nillable="true" type="tns:Seccion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Seccion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Persistent">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Precio" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Capacidad" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Evento" type="tns:Evento" />
+              <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="GetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeccionesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSecciones" />
+  </wsdl:message>
+  <wsdl:message name="GetSeccionesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeccionesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EventoServiceSoap">
+    <wsdl:operation name="GetById">
+      <wsdl:input message="tns:GetByIdSoapIn" />
+      <wsdl:output message="tns:GetByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecciones">
+      <wsdl:input message="tns:GetSeccionesSoapIn" />
+      <wsdl:output message="tns:GetSeccionesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EventoServiceSoap" type="tns:EventoServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://localhost/Servicios/Evento/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecciones">
+      <soap:operation soapAction="http://localhost/Servicios/Evento/GetSecciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EventoServiceSoap12" type="tns:EventoServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap12:operation soapAction="http://localhost/Servicios/Evento/GetById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecciones">
+      <soap12:operation soapAction="http://localhost/Servicios/Evento/GetSecciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EventoService">
+    <wsdl:port name="EventoServiceSoap" binding="tns:EventoServiceSoap">
+      <soap:address location="http://myevents.idealabgym.com/servicios/eventoservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EventoServiceSoap12" binding="tns:EventoServiceSoap12">
+      <soap12:address location="http://myevents.idealabgym.com/servicios/eventoservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

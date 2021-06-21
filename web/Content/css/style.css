@@ -1,0 +1,108 @@
+.table .btn-group {
+    width:96px !important;
+}
+.tile-image {
+    margin:31px auto !important;
+}
+footer {
+    background-color: inherit;
+}
+footer div.col-sm-4 {
+    padding: 50px 100px;
+}
+.affix {
+    position: fixed !important;
+}
+/* Small devices (tablets, 768px and up) */
+
+.seccion {
+    border-top: 1px #868686 dashed;
+    margin-top: 15px;
+}
+.seccion:first-child {
+    border-top: 0px #868686 dashed;
+    margin-top: 0px;
+}
+@media (min-width: 990px) {
+    .table .btn-group {
+        visibility:hidden;
+    }
+    .table tr:hover .btn-group {
+        visibility:visible;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 990px) {
+    footer div.col-sm-4 {
+        padding: 50px;
+    }
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .affix {
+        position: static !important;
+    }
+    .affix-bottom {
+        position: static !important;
+    }
+    footer div.col-sm-4 {
+        padding: 20px 100px;
+    }
+}
+.thumbnail {
+    background: none;
+}
+.text-nowrap {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.column-left, .column-right {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.column-left p, .seccion p {
+    margin-bottom: 0px;
+}
+.tile p {
+    margin-bottom: 0px;
+}
+.divEditable {
+    min-width: 200px;
+}
+[contenteditable=true] {
+    cursor: auto;
+}
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    color: #999;
+}
+[contenteditable=true]:not(:empty) {
+    color: inherit;
+}
+.label:empty {
+    display: inline;
+}
+input.noStyle {
+    width: initial;
+    display: inline;
+    border: none;
+    background: none;
+    margin-left: 10px;
+}
+input[type=number].noStyle {
+    width: 100px;
+}
+body {
+    background: url('../img/icons/png/Map.png');
+}
